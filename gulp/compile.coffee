@@ -1,14 +1,14 @@
-browserify = require "browserify"
-error      = require "./error.coffee"
-es         = require "event-stream"
-gulp       = require "gulp"
-notify     = require "gulp-notify"
-rename     = require "gulp-rename"
-source     = require "vinyl-source-stream"
-streamify  = require "gulp-streamify"
-timer      = require "gulp-duration"
-uglify     = require "gulp-uglify"
-chmod      = require "gulp-chmod"
+browserify  = require "browserify"
+error       = require "./error.coffee"
+mergeStream = require "merge-stream"
+gulp        = require "gulp"
+notify      = require "gulp-notify"
+rename      = require "gulp-rename"
+source      = require "vinyl-source-stream"
+streamify   = require "gulp-streamify"
+timer       = require "gulp-duration"
+uglify      = require "gulp-uglify"
+chmod       = require "gulp-chmod"
 
 gulp.task "compile", ->
 
@@ -42,4 +42,4 @@ gulp.task "compile", ->
     ))
     .on "error", notify.onError(error)
 
-  es.merge normal, full
+  return mergeStream normal, full
