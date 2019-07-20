@@ -1,5 +1,9 @@
 # D3plus
 
+Original library: https://github.com/alexandersimoes/d3plus.
+
+The update fixes all vulnerabilities found by npm audit and updates gulp to build the library without issues.
+
 ⚠️  **Version 2 Incoming**  ⚠️
 
 This branch is for version 1, which is not being actively maintained. All development has been focused on version 2, which splits the project into [many small libraries](https://github.com/d3plus/) that are designed to work together.
@@ -24,7 +28,12 @@ A javascript library that extends the popular [D3.js](http://d3js.org) to enable
 
 ### Development Environment
 
-Clone the repo:
+Clone this repo:
+```sh
+git clone https://github.com/feardarkness/d3plus
+```
+
+Clone the original repo:
 ```sh
 git clone https://github.com/alexandersimoes/d3plus.git
 ```
@@ -39,11 +48,17 @@ Install the dependencies:
 npm install
 ```
 
-Run the gulp process:
+Run the gulp process to start development:
 ```sh
-gulp
+./node_modules/.bin/gulp
 ```
 
 Gulp will run a server on your local machine at port 4000, and whenever you change a source file it will re-compile d3plus.js and reload your browser!
 
 Additionally, the gulp process watches for any files in a directory titles "/tests". If you place all of your test .html files in a directory of that name, the gulp process will also detect any file changes and refresh the browser.
+
+
+Generate the library for usage in production:
+```sh
+ ./node_modules/.bin/gulp release
+ ```
